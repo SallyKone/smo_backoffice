@@ -1,0 +1,41 @@
+<app-header></app-header>
+<app-menu></app-menu>
+
+<div class="scroll card card-primary main-header navbar navbar-expand bg-white navbar-light border-bottom ">
+  <h2> Liste des Clients</h2>
+
+  <table class="table table-striped ">
+    <thead>
+    <tr>
+      <th>Type_client</th>
+      <!--<th class="hidden">Id </th>-->
+      <th>Adresse</th>
+      <th>Email</th>
+      <th>Fax</th>
+      <th>Nom</th>
+      <th>Telephone</th>
+      <th>Nationnalite</th>
+      <th>Prenom</th>
+      <th>Sigle</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody >
+    <tr *ngFor="let clients of client">
+      <td >{{clients.type_client}}</td>
+      <!--<td class="hidden">{{clients.id_client}}</td>-->
+      <td>{{clients.adresse}}</td>
+      <td>{{clients.email}}</td>
+      <td>{{clients.fax}}</td>
+      <td >{{clients.nom}}</td>
+      <td>{{clients.telephone}}</td>
+      <td>{{clients.nationnalite}}</td>
+      <td>{{clients.prenom}}</td>
+      <td>{{clients.sigle}}</td>
+      <td><button class="btn btn-danger"> Ajouter</button>
+        <button class="btn btn-danger" style="margin-left: 20px;"> Supprimer</button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<app-footer></app-footer>

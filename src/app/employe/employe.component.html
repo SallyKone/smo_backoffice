@@ -1,47 +1,47 @@
 <app-header></app-header>
 <app-menu></app-menu>
 
-<div class="content-wrapper">
-  <div class="card card-primary">
-    <div class="card-header">
-      <h3 class="card-title">Quick Example</h3>
-    </div>
-    <!-- /.card-header -->
-    <!-- form start -->
-    <form role="form">
-      <div class="card-body">
-        <div class="form-group">
-          <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-        </div>
-        <div class="form-group">
-          <label for="exampleInputFile">File input</label>
-          <div class="input-group">
-            <div class="custom-file">
-              <input type="file" class="custom-file-input" id="exampleInputFile">
-              <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-            </div>
-            <div class="input-group-append">
-              <span class="input-group-text" id="">Upload</span>
-            </div>
-          </div>
-        </div>
-        <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Check me out</label>
-        </div>
-      </div>
-      <!-- /.card-body -->
+  <div class="scroll card card-primary main-header navbar navbar-expand bg-white navbar-light border-bottom ">
+  <h2> Liste des employés</h2>
 
-      <div class="card-footer">
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </div>
-    </form>
-  </div>
+  <table class="table table-striped ">
+    <thead>
+    <tr>
+      <th>Type_employé</th>
+      <th >Id </th>
+      <th>CNI</th>
+      <th>Date_Naissance</th>
+      <th>Domicile</th>
+      <th>Login</th>
+      <th>Nom</th>
+      <th>Password</th>
+      <th>Photo</th>
+      <th>Type Piece</th>
+      <th>Empreinte</th>
+      <th>Fonction</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody >
+    <tr *ngFor="let employes of employe">
+      <td >{{employes.type_employe}}</td>
+      <td >{{employes.id_employe}}</td>
+      <td>{{employes.cni}}</td>
+      <td>{{employes.dateNaissance}}</td>
+      <td>{{employes.domicile}}</td>
+      <td >{{employes.login}}</td>
+      <td>{{employes.nom}}</td>
+      <td>{{employes.password}}</td>
+      <td>{{employes.photo}}</td>
+      <td>{{employes.typePiece}}</td>
+      <td>{{employes.pointage}}</td>
+      <td><button class="btn btn-danger"> Ajouter</button>
+        <button class="btn btn-danger" style="margin-left: 20px;"> Supprimer</button></td>
+
+
+    </tr>
+    </tbody>
+  </table>
 </div>
 
 <app-footer></app-footer>
