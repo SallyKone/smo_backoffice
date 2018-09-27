@@ -1,9 +1,10 @@
 div.scroll {
   background-color: #333;
-  overflow: auto;
+
   white-space: nowrap;
 }
-
+table{overflow: scroll;
+  display: block;}
 div.scroll a {
   display: inline-block;
   color: white;

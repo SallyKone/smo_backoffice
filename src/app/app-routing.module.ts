@@ -7,6 +7,8 @@ import {LoginComponent} from './login/login.component';
 import {SiteComponent} from './site/site.component';
 import {PointageComponent} from './pointage/pointage.component';
 import {ClientComponent} from './client/client.component';
+import {AddEmployeComponent} from './add-employe/add-employe.component';
+import {AddClientComponent} from './add-client/add-client.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -15,7 +17,9 @@ const routes: Routes = [
   {path: 'employe', component: EmployeComponent},
   {path:'client', component: ClientComponent},
   {path:'site', component: SiteComponent},
-  {path:'pointage', component: PointageComponent}
+  {path:'pointage', component: PointageComponent},
+  {path:'add-employe', component: AddEmployeComponent},
+  {path:'add-client', component: AddClientComponent}
 ];
 
 @NgModule({

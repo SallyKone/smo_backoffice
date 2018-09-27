@@ -12,6 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { SiteComponent } from './site/site.component';
 import { PointageComponent } from './pointage/pointage.component';
 import { ClientComponent } from './client/client.component';
+import { AddEmployeComponent } from './add-employe/add-employe.component';
+import { AddClientComponent } from './add-client/add-client.component';
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import { ClientComponent } from './client/client.component';
     LoginComponent,
     SiteComponent,
     PointageComponent,
-    ClientComponent
+    ClientComponent,
+    AddEmployeComponent,
+    AddClientComponent
 
   ],
   imports: [
