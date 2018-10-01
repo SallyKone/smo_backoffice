@@ -1,7 +1,11 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Pointage} from '../models/Pointage';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +14,7 @@ export class PointageService {
   
   Url= 'http://localhost:8080/pointages/index';
   UrlPointageId= 'http://localhost:8080/pointages/getPointage/{numero}';
-  UrlAddPointage= 'http://localhost:8080/pointages/addPointage';
+  UrlPointageAdd= 'http://localhost:8080/pointages/addPointage';
   UrlUpdatePointage= 'http://localhost:8080/pointages/updatePointage/{numero}';
   UrlDeletePointage= 'http://localhost:8080/pointages/deletePointage/{numero}';
 
@@ -23,9 +27,10 @@ export class PointageService {
     return this.http.get<Pointage[]>(this.UrlPointageId + '/' + numero);
   }
 
-  addPointage(pointage: Pointage): Observable<Pointage[]>
+  addPointage(pointage)
   {
-    return this.http.post<Pointage[]>(this.UrlAddPointage, Pointage);
+    let body = JSON.stringify(pointage)
+    return this.http.post(this.UrlPointageAdd, body, httpOptions);
   }
 
   updatePointage(pointage: Pointage): Observable<Pointage[]>
@@ -34,6 +39,7 @@ export class PointageService {
   }
 
   deletePointage(numero: number): Observable<Pointage[]>
+
   {
     return this.http.delete<Pointage[]>(this.UrlDeletePointage +'/'+ numero);
   }

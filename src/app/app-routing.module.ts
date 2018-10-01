@@ -9,6 +9,9 @@ import {PointageComponent} from './pointage/pointage.component';
 import {ClientComponent} from './client/client.component';
 import {AddEmployeComponent} from './add-employe/add-employe.component';
 import {AddClientComponent} from './add-client/add-client.component';
+import {UpdateEmployeComponent} from './update-employe/update-employe.component';
+import {AddSiteComponent} from './add-site/add-site.component';
+import {AddPointageComponent} from './add-pointage/add-pointage.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -19,7 +22,10 @@ const routes: Routes = [
   {path:'site', component: SiteComponent},
   {path:'pointage', component: PointageComponent},
   {path:'add-employe', component: AddEmployeComponent},
-  {path:'add-client', component: AddClientComponent}
+  {path:'add-client', component: AddClientComponent},
+  {path: 'update-employe', component: UpdateEmployeComponent},
+  {path: 'add-site', component: AddSiteComponent},
+  {path: 'add-pointage', component: AddPointageComponent}
 ];
 
 @NgModule({

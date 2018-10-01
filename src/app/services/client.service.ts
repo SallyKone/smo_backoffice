@@ -1,7 +1,11 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Client} from '../models/Client';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -24,10 +28,12 @@ export class ClientService {
       return this.http.get<Client[]>(this.UrlClientId + '/' + id_client);
     }
 
-    addClient(client: Client): Observable<Client[]>
+    addClient(client)
     {
-      return this.http.post<Client[]>(this.UrlAddClient, Client );
+      let body = JSON.stringify(client);
+      return this.http.post(this.UrlAddClient, body, httpOptions );
     }
+
     updateClient(client: Client): Observable<Client[]>
     {
       return this.http.put<Client[]>(this.UrlUpdateClient +'/'+ client.id_client, Client);
@@ -36,4 +42,5 @@ export class ClientService {
     {
       return this.http.delete<Client[]>(this.UrlDeleteClient + '/'+ id_client);
     }
+
 }

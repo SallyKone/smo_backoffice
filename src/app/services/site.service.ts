@@ -1,7 +1,11 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Site} from '../models/Site';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +18,7 @@ export class SiteService {
   UrlDeleteSite= 'http://localhost:8080/site/deleteSite/{idSite}';
 
   constructor(private http: HttpClient) { }
+
   findALL():Observable<Site[]>{
     return this.http.get<Site[]>(this.Url);
   }
@@ -23,9 +28,10 @@ export class SiteService {
     return this.http.get<Site[]>(this.UrlIdSite +'/'+ idSite);
   }
 
-  AddSite(site: Site): Observable<Site[]>
+  addSite(site)
   {
-    return this.http.post<Site[]>(this.UrlAddSite, Site);
+    let body = JSON.stringify(site)
+    return this.http.post(this.UrlAddSite, body, httpOptions);
   }
 
   updateSite(site: Site): Observable<Site[]>

@@ -3,7 +3,7 @@
 
   <div class="scroll card card-primary main-header navbar navbar-expand bg-white navbar-light border-bottom ">
   <h2> Liste des employés</h2>
-
+    <button class="btn btn-danger" (click)="updateEmploye(employe)">MODIFIER</button>
   <table class="table table-striped ">
     <thead>
     <tr>
@@ -18,6 +18,7 @@
       <th>Photo</th>
       <th>Type Piece</th>
       <th>Action</th>
+
     </tr>
     </thead>
     <tbody >
@@ -33,8 +34,8 @@
       <td>{{employes.photo}}</td>
       <td>{{employes.typePiece}}</td>
       <!--<td>{{employes.pointage}}</td>-->
-      <td><button class="btn btn-danger"> Ajouter</button>
-        <button class="btn btn-danger" style="margin-left: 20px;"> Supprimer</button></td>
+      <td><button class="btn btn-danger" (click)="addEmploye()" > Ajouter</button>
+        <button class="btn btn-danger" (click)="deleteEmploye(employe)" style="margin-left: 20px;"> Supprimer</button></td>
 
 
     </tr>

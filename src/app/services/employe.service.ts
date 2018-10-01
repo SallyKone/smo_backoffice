@@ -2,6 +2,11 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Employe} from '../models/Employe';
+import {HttpHeaders} from '@angular/common/http';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +19,7 @@ export class EmployeService {
   UrlA= 'http://localhost:8080/employes/updateEmploye/{id_employe}';
   UrlD= 'http://localhost:8080/employes/deleteEmploye/{id_employe}';
 
+
   constructor(private http: HttpClient) { }
   findALL():Observable<Employe[]>
   {
@@ -25,18 +31,18 @@ export class EmployeService {
     return this.http.get<Employe[]>(this.UrlId + '/' + id_employe) ;
   }
 
-  addEmploye(employe: Employe): Observable<Employe>
+  addEmploye(employe)
   {
-    return this.http.post<Employe>(this.UrlP, Employe);
+    let body = JSON.stringify(employe);
+    return this.http.post(this.UrlP, body, httpOptions);
   }
 
-  updateEmploye(employe: Employe): Observable<Employe>
-  {
-    return this.http.put<Employe>(this.UrlA + '/' + employe.id_employe, employe);
-  }
+  updateEmploye(employe) {
+           let body = JSON.stringify(employe);
+          return this.http.put(this.UrlA + employe.id_employe, body, httpOptions);
+       }
 
-  deleteEmploye(id_employe: number): Observable<Employe>
-  {
-    return this.http.delete<Employe>(this.UrlD + '/' + id_employe);
-  }
+  deleteEmploye(employe) {
+          return this.http.delete(this.UrlD + employe.id_employe);
+       }
 }

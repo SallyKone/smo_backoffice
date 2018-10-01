@@ -14,6 +14,10 @@ import { PointageComponent } from './pointage/pointage.component';
 import { ClientComponent } from './client/client.component';
 import { AddEmployeComponent } from './add-employe/add-employe.component';
 import { AddClientComponent } from './add-client/add-client.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UpdateEmployeComponent } from './update-employe/update-employe.component';
+import { AddSiteComponent } from './add-site/add-site.component';
+import { AddPointageComponent } from './add-pointage/add-pointage.component';
 
 
 @NgModule({
@@ -26,7 +30,10 @@ import { AddClientComponent } from './add-client/add-client.component';
     PointageComponent,
     ClientComponent,
     AddEmployeComponent,
-    AddClientComponent
+    AddClientComponent,
+    UpdateEmployeComponent,
+    AddSiteComponent,
+    AddPointageComponent
 
   ],
   imports: [
@@ -34,7 +41,10 @@ import { AddClientComponent } from './add-client/add-client.component';
     UiModule,
     AppRoutingModule,
     DashboardModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

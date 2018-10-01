@@ -8,7 +8,7 @@
     <thead>
     <tr>
       <th>Type_client</th>
-      <!--<th class="hidden">Id </th>-->
+      <th >Id </th>
       <th>Adresse</th>
       <th>Email</th>
       <th>Fax</th>
@@ -23,7 +23,7 @@
     <tbody >
     <tr *ngFor="let clients of client">
       <td >{{clients.type_client}}</td>
-      <!--<td class="hidden">{{clients.id_client}}</td>-->
+      <td >{{clients.id_client}}</td>
       <td>{{clients.adresse}}</td>
       <td>{{clients.email}}</td>
       <td>{{clients.fax}}</td>
@@ -32,7 +32,7 @@
       <td>{{clients.nationnalite}}</td>
       <td>{{clients.prenom}}</td>
       <td>{{clients.sigle}}</td>
-      <td><button class="btn btn-danger"> Ajouter</button>
+      <td><button class="btn btn-danger" (click)="addClient()"> Ajouter</button>
         <button class="btn btn-danger" style="margin-left: 20px;"> Supprimer</button></td>
     </tr>
     </tbody>

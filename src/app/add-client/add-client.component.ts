@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {ClientService} from '../services/client.service';
+import {FormBuilder} from '@angular/forms';
+import {Router} from '@angular/router';
+import {Client} from '../models/Client';
 
 @Component({
   selector: 'app-add-client',
@@ -7,9 +11,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddClientComponent implements OnInit {
 
-  constructor() { }
+  client= new Client();
+  constructor(private clientSercice: ClientService, private formBuilder: FormBuilder,private router: Router) { }
 
   ngOnInit() {
   }
 
+  Submit() {
+    this.clientSercice.addClient(this.client)
+      .subscribe( data => {
+        this.router.navigate(['client']);
+      });
+  }
 }

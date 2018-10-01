@@ -7,53 +7,54 @@
   </div>
   <!-- /.card-header -->
   <!-- form start -->
-  <form role="form">
+  <form  (ngSubmit)="onSubmit()">
+
     <div class="card-body">
       <div class="form-group">
         <label>Type Employé</label>
-        <select class="form-control">
+        <select class="form-control"  [(ngModel)]="employe.type_employe" name="type_employe" >
           <option>Vigile</option>
           <option>Staff</option>
         </select>
       </div>
       <div class="form-group">
-        <label for="exampleInputEmail1">Nom</label>
-        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Entrer votre Nom">
+        <label>Nom</label>
+        <input type="text" class="form-control"  [(ngModel)]="employe.nom" placeholder="Entrer votre Nom" name="nom">
       </div>
       <div class="form-group">
-        <label for="exampleInputEmail1">Date Naissance</label>
-        <input type="date" class="form-control" id="exampleInputEmail" placeholder="Date Naissance">
+        <label>Date Naissance</label>
+        <input type="date" class="form-control"  [(ngModel)]="employe.dateNaissance" name="dateNaissance"  placeholder="Date Naissance">
       </div>
       <div class="form-group">
         <label>Type Pièce</label>
-        <select class="form-control">
+        <select class="form-control"  [(ngModel)]="employe.typePiece" name="typePiece">
           <option>CNI</option>
           <option>PASSPORT</option>
           <option>PERMIS</option>
         </select>
       </div>
       <div class="form-group">
-        <label for="exampleInputEmail1">Numero Pièce</label>
-        <input type="text" class="form-control" id="exampleInptEmail1" placeholder="Numero Pièce">
+        <label>Numero Pièce</label>
+        <input type="text" class="form-control"  [(ngModel)]="employe.cni" name="cni"  placeholder="Numero Pièce">
       </div>
       <div class="form-group">
-        <label for="exampleInputEmail1">Fonction</label>
-        <input type="text" class="form-control" id="exmpleInputEmail1" placeholder="Fonction">
+        <label>Domicile</label>
+        <input type="text" class="form-control"  [(ngModel)]="employe.domicile" name="domicile"  placeholder="Domicile">
       </div>
       <div class="form-group">
-        <label for="exampleInputPassword1">Login</label>
-        <input type="text" class="form-control" id="exampleInputPassword" placeholder="Login">
+        <label >Login</label>
+        <input type="text" class="form-control"  [(ngModel)]="employe.login" name="login"  placeholder="Login">
       </div>
       <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        <label>Password</label>
+        <input type="password" class="form-control"   [(ngModel)]="employe.password" name="password" placeholder="Password">
       </div>
       <div class="form-group">
-        <label for="exampleInputFile">Photo</label>
+        <label >Photo</label>
         <div class="input-group">
           <div class="custom-file">
-            <input type="file" class="custom-file-input" id="exampleInputFile">
-            <label class="custom-file-label" for="exampleInputFile">Choisir un fichier</label>
+            <input type="file" class="custom-file-input" [(ngModel)]="employe.photo" name="photo"  >
+            <label class="custom-file-label">Choisir un fichier</label>
           </div>
           <div class="input-group-append">
             <span class="input-group-text" id="">Télécharger</span>
@@ -65,7 +66,7 @@
     <!-- /.card-body -->
 
     <div class="card-footer">
-      <button type="submit" class="btn btn-primary">Ajouter</button>
+      <button type="ngSubmit" class="btn btn-primary">Ajouter</button>
     </div>
   </form>
 </div>
